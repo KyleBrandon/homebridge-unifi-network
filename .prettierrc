@@ -1,0 +1,11 @@
+{
+    "semi": true,
+    "singleQuote": true,
+    "arrowParens": "always",
+    "useTabs": false,
+    "tabWidth": 4,
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "printWidth": 80,
+    "configPrecedence": "prefer-file"
+}

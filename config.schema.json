@@ -1,16 +1,86 @@
 {
-  "pluginAlias": "ExampleHomebridgePlugin",
-  "pluginType": "platform",
-  "singular": true,
-  "schema": {
-    "type": "object",
-    "properties": {
-      "name": {
-        "title": "Name",
-        "type": "string",
-        "required": true,
-        "default": "Example Dynamic Platform"
-      }
-    }
-  }
+    "pluginAlias": "Homebridge UniFi Network",
+    "pluginType": "platform",
+    "singular": true,
+    "schema": {
+        "type": "object",
+        "properties": {
+            "controller": {
+                "title": "Controller Settings",
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "title": "Controller URL",
+                        "type": "string",
+                        "required": true
+                    },
+                    "username": {
+                        "title": "Controller Username",
+                        "type": "string",
+                        "required": true
+                    },
+                    "password": {
+                        "title": "Controller Password",
+                        "type": "string",
+                        "required": true
+                    },
+                    "siteName": {
+                        "title": "Site Name",
+                        "type": "string",
+                        "default": "default",
+                        "placeholder": "default",
+                        "required": true
+                    }
+                }
+            },
+            "networks": {
+                "title": "Names of the networks to expose in HomeKit",
+                "type": "array",
+                "items": {
+                    "title": "Network Name",
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "layout": [
+        {
+            "type": "section",
+            "title": "UniFi Controller Settings",
+            "expandable": true,
+            "expanded": false,
+            "items": [
+                {
+                    "description": "Settings for the UniFi Controller",
+                    "items": [
+                        "controller.address",
+                        "controller.username",
+                        "controller.password",
+                        "controller.siteName"
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "title": "UniFi Network Settings",
+            "expandable": true,
+            "expanded": false,
+            "items": [
+                {
+                    "items": [
+                        {
+                            "key": "networks",
+                            "type": "array",
+                            "title": "Networks",
+                            "description": "Names of the networks to expose in HomeKit",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }
